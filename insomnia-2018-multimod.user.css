@@ -1,0 +1,62 @@
+/* ==UserStyle==
+@name Insomnia 2018 MultiMod
+@namespace https://github.com/AlexGidarakos/userstyles
+@version 1.0.0-alpha2
+@description A Stylus userstyle applying several modifications to post-2018 Insomnia.gr
+@author Alexandros Gidarakos <algida79@gmail.com> (https://www.linkedin.com/in/alexandrosgidarakos/)
+@homepageURL https://github.com/AlexGidarakos/userstyles
+@supportURL https://github.com/AlexGidarakos/userstyles/issues
+@license Unlicense
+@preprocessor stylus
+@var checkbox cozyMode 'Cozy mode' 0
+@var checkbox altLikeImg 'Alt. Like image' 0
+==/UserStyle== */
+@-moz-document domain("insomnia.gr") {
+  if cozyMode {
+    body { font-size: 1rem; }
+    .ipsLayout_container-block { max-width: 1260px !important; }
+    .ipsMenu_title { font-size: 14px; }
+    .ipsMenu_item > a { padding: 6px 15px; font-size: 0.95rem; }
+    .breadcrumb { font-size: 0.8rem; padding: 10px 10px; }
+    .ipsPageHeader { padding: 0; margin: 4px 0; }
+    .ipsType_pageTitle { font-size: 24px; }
+    .ipsUserPhoto_small img { width: 50px; height: 50px; border-radius: 25px; }
+    .ipsColumn_medium { width: 180px; }
+    .cAuthorPane { font-size: 0.8rem; padding: 10px !important; }
+    .ipsType_sectionHead { font-size: 1.1rem; }
+    .ipsUserPhoto_large img { width: 80px; height: 80px; border-radius: 40px; }
+    .cPost.ipsComment .ipsType_richText { font-size: 14px; }
+    .cPost { margin-bottom: 16px; border-width: 1px; border-color: rgba(0,0,0,0.3); }
+    html[dir="ltr"] .cPost .ipsComment_meta { padding: 12px 0 6px; }
+    .cPost .cPost_contentWrap { padding-bottom: 12px; }
+    .ipsComment [data-role="commentContent"] { margin-bottom: 32px; }
+    .ipsItemControls { padding-top: 4px; border-top: 1px solid rgba(0,0,0,0.3); }
+    hr.ipsHr { border-top-width: 1px; margin: 8px 0; border-color: rgba(0,0,0,0.3); }
+    div[data-role="memberSignature"] { opacity: 0.5; }
+    div[data-role="memberSignature"] p { margin: 6px 0; }
+    div[data-role="memberSignature"] p, div[data-role="memberSignature"] p span { font-size: 0.8rem !important; }
+  }
+
+  if altLikeImg {
+    altLikeImgReset(n) {
+      height: 0;
+      width: 0;
+      background: url(http://www.insomnia.gr/uploads/monthly_2018_01/large.react_like_multimod.png.a8d26ab1c8a2689f82578b2c20b20acf.png) no-repeat;
+      padding-left: n;
+      padding-top: n;
+      background-size: n;
+    }
+
+    .ipsReact_reactCount img[alt="Like"] {
+      altLikeImgReset(18px)
+    }
+
+    .ipsReactOverview_small img[alt="Like"] {
+      altLikeImgReset(20px)
+    }
+
+    a.ipsReact_reaction img[_title="Like"] {
+      altLikeImgReset(30px)
+    }
+  }
+}
